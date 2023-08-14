@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<IconDefinitions>
+		<Row Name="ICON_BUILDING_TRA_SORROW" Atlas="ICON_ATLAS_BUILDINGS" Index="3"/>
+	</IconDefinitions>
+</GameData>

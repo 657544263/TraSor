@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GameData>
+	<Types>
+		<!--添加建筑-->
+		<Row Type="BUILDING_TRA_SORROW" Kind="KIND_BUILDING" />
+	</Types>
+
+	<Buildings>
+		<!--成本:Cost; 世界最多数量:MaxWorldInstances; 是奇迹:IsWonder; 住房:Housing; 公民槽位:CitizenSlots; 提供宜居度:Entertainment; 生效范围:RegionalRange; 外部防御:OuterDefenseHitPoints;外部防御强度:OuterDefenseStrength;-->
+		<Row BuildingType="BUILDING_TRA_SORROW" Name="LOC_BUILDING_TRA_SORROW_NAME" PrereqDistrict="DISTRICT_CITY_CENTER" PurchaseYield="YIELD_GOLD" Cost="1" MaxWorldInstances="1" IsWonder="true" Housing="10" CitizenSlots="10" Entertainment="30" RegionalRange="100000" OuterDefenseHitPoints="20" OuterDefenseStrength="10"/>
+	</Buildings>
+
+
+	<!--数值修改请改【YieldChange="*"】*处的数值，6项依次对应科技、产出、信仰、文化、粮食、金钱-->
+	<Building_YieldChanges>
+		<Row BuildingType="BUILDING_TRA_SORROW" YieldType="YIELD_SCIENCE" YieldChange="10"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" YieldType="YIELD_PRODUCTION" YieldChange="10"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" YieldType="YIELD_FAITH" YieldChange="10"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" YieldType="YIELD_CULTURE" YieldChange="10"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" YieldType="YIELD_FOOD" YieldChange="15"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" YieldType="YIELD_GOLD" YieldChange="10"/>
+	</Building_YieldChanges>
+
+	<!--伟人点数-->
+	<Building_GreatPersonPoints>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatPersonClassType="GREAT_PERSON_CLASS_ENGINEER" PointsPerTurn="1"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatPersonClassType="GREAT_PERSON_CLASS_MERCHANT" PointsPerTurn="1"/>
+	</Building_GreatPersonPoints>
+
+	<!--巨作槽位，修改数值在【NumSlots="*"】*号处-->
+	<Building_GreatWorks>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_PALACE" NumSlots="30"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_RELIC" NumSlots="30"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_WRITING" NumSlots="30"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_ART" NumSlots="30"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_ARTIFACT" NumSlots="30"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_MUSIC" NumSlots="30"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" GreatWorkSlotType="GREATWORKSLOT_CATHEDRAL" NumSlots="30"/>
+	</Building_GreatWorks>
+
+	<!--适应地形-->
+	<Building_ValidTerrains>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_COAST"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_PLAINS"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_GRASS"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_DESERT"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_SNOW"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_TUNDRA"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_GRASS_HILLS"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_PLAINS_HILLS"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_DESERT_HILLS"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_TUNDRA_HILLS"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" TerrainType="TERRAIN_SNOW_HILLS"/>
+	</Building_ValidTerrains>
+	
+	<!--修改modifiers(修正)的时候，请同时更改【Modifiers】【ModifierArguments】【BuildingModifiers】三处对应的语句-->
+	<Modifiers>
+
+		<!--增加边界扩张率-->
+		<Row ModifierId="MAGIC_PALACE_CULTUREBORDER" ModifierType="MODIFIER_ALL_CITIES_CULTURE_BORDER_EXPANSION"/>
+		<!--晋升单位不结束回合-->
+		<Row ModifierId="MAGIC_PALACE_GRANCOLOMBIA_PROMOTE_NO_FINISH_MOVES" ModifierType="MODIFIER_PLAYER_UNITS_PROMOTE_NO_FINISH_MOVES"/>
+		<!--尤里卡获得100%科技-->
+		<Row ModifierId="MAGIC_PALACE_BABYLON_EUREKA_INCREASE" ModifierType="MODIFIER_PLAYER_ADJUST_TECHNOLOGY_BOOST"/>
+		<!--工人建造次数-->
+		<Row>
+			<ModifierId>SOG_ADJUST_BUILDER_CHARGES</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_BUILDER_CHARGES</ModifierType>
+			<SubjectRequirementSetId>UNIT_IS_BUILDER</SubjectRequirementSetId>
+		</Row>
+		<!-- 攻击后可以移动 -->
+		<Row>
+			<ModifierId>TRAIT_EliteSoldier_MOVE_AFTER_ATTACK</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		<!--攻击后移动-->
+		<Row>
+			<ModifierId>TRAIT_0021</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_0021_MODIFIER</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNIT_ADJUST_ATTACK_AND_MOVE</ModifierType>
+		</Row>
+		<!-- 即使已行动也可恢复生命 -->
+		<Row>
+			<ModifierId>TRAIT_EliteSoldier_MAMLUK_HEAL_EVERY_MOVE</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		<!--移动-->
+		<Row>
+			<ModifierId>TRAIT_0007</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_MOVEMENT</ModifierType>
+		</Row>
+		<!--单位射程-->
+		<Row>
+			<ModifierId>TRAIT_0009</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_ATTACK_RANGE</ModifierType>
+		</Row>
+		<!--攻击次数-->
+		<Row>
+			<!--攻击次数-->
+			<ModifierId>TRAIT_0018</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		<Row>
+			<!--攻击次数-->
+			<ModifierId>TRAIT_0018_MODIFIER</ModifierId>
+			<ModifierType>MODIFIER_UNIT_ADJUST_NUM_ATTACKS</ModifierType>
+		</Row>
+		<!--影响力-->
+		<Row>
+			<ModifierId>TRAIT_0020</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_INFLUENCE_POINTS_PER_TURN</ModifierType>
+		</Row>
+		<!--初始人口增加-->
+		<Row>
+			<ModifierId>TRAIT_0028</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_CITIES_ADD_POPULATION</ModifierType>
+		</Row>
+		<!--初始地块增加-->
+		<Row>
+			<ModifierId>TRAIT_0027</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_CITY_TILES</ModifierType>
+		</Row>
+		<!--视野范围-->
+		<Row>
+			<ModifierId>TRAIT_0019</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_0019_MODIFIER</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNIT_ADJUST_SIGHT</ModifierType>
+		</Row>
+		<!--打蛮族额外增加攻击力-->
+		<Row ModifierId="TRAIT_EMM_BONUS_AGAINST_BARBS" ModifierType="MODIFIER_PLAYER_UNITS_ADJUST_BARBARIAN_COMBAT"/>
+		<!--宗教单位传教次数增加-->
+		<Row>
+			<ModifierId>TRAIT_0023</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_SPREAD_CHARGES</ModifierType>
+		</Row>
+		<!--战略资源储备上限增加-->
+		<Row>
+			<ModifierId>TRAIT_0034</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_RESOURCE_STOCKPILE_CAP</ModifierType>
+		</Row>
+		<!-- 占领城市后强制信仰本国国教 -->
+		<Row>
+			<ModifierId>TRAIT_EliteSoldier_CONQUISTADOR_CITY_RELIGION_COMBAT</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		<!-- 将敌人转化为工人 -->
+		<Row>
+			<!--捕获敌方单位变成工人-->
+			<ModifierId>TRAIT_EliteSoldier_CAPTURE_COMBAT_UNITS_AS_WORKERS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER</ModifierType>
+		</Row>
+		
+		
+		<!--城市电力-->
+		<Row ModifierId="TRA_SORROW_POWER_ORIGIN" ModifierType="MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER"/>
+		<Row ModifierId="TRA_SORROW_POWER_ORIGIN_MODIFIER" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER"/>
+
+		<!--每回合提供战略资源-->
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_HORSES" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_IRON" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_NITER" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_COAL" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_OIL" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_ALUMINUM" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_URANIUM" ModifierType="MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION"/>
+	</Modifiers>
+	
+	<!--调数值的位置-->
+	<ModifierArguments>
+
+		<!--增加边界扩张率%-->
+		<Row ModifierId="MAGIC_PALACE_CULTUREBORDER" Name="Amount"  Value="200"/>
+		<!--晋升单位不结束回合-->
+		<Row ModifierId="MAGIC_PALACE_GRANCOLOMBIA_PROMOTE_NO_FINISH_MOVES" Name="NoFinishMoves"  Value="true"/>
+		<!--尤里卡获得100%科技-->
+		<Row ModifierId="MAGIC_PALACE_BABYLON_EUREKA_INCREASE" Name="Amount"  Value="100"/>
+		<!--工人建造次数-->
+		<Row ModifierId="SOG_ADJUST_BUILDER_CHARGES" Name="Amount"  Value="5"/>
+		<!-- 攻击后可以移动 -->
+		<Row ModifierId="TRAIT_EliteSoldier_MOVE_AFTER_ATTACK" Name="ModifierId"  Value="COSSACK_MOVE_AND_ATTACK"/>
+		<!--攻击后移动-->
+		<Row ModifierId="TRAIT_0021" Name="ModifierId"  Value="TRAIT_0021_MODIFIER"/>
+		<Row ModifierId="TRAIT_0021_MODIFIER" Name="CanMove"  Value="True"/>
+		<!-- 即使已行动也可恢复生命 -->
+		<Row ModifierId="TRAIT_EliteSoldier_MAMLUK_HEAL_EVERY_MOVE" Name="ModifierId"  Value="MAMLUK_HEAL_EVERY_MOVE"/>
+		<!--移动-->
+		<Row ModifierId="TRAIT_0007" Name="Amount"  Value="5"/>
+		<!--单位射程-->
+		<Row ModifierId="TRAIT_0009" Name="Amount"  Value="5"/>
+		<!--攻击次数-->
+		<Row ModifierId="TRAIT_0018" Name="ModifierId"  Value="TRAIT_0018_MODIFIER"/>
+		<Row ModifierId="TRAIT_0018_MODIFIER" Name="Amount"  Value="2"/>
+		<!--影响力-->
+		<Row ModifierId="TRAIT_0020" Name="Amount"  Value="8"/>
+		<!--初始人口增加-->
+		<Row ModifierId="TRAIT_0028" Name="Amount"  Value="5"/>
+		<!--初始地块增加-->
+		<Row ModifierId="TRAIT_0027" Name="Amount"  Value="7"/>
+		<!--视野范围-->
+		<Row ModifierId="TRAIT_0019" Name="ModifierId"  Value="TRAIT_0019_MODIFIER"/>
+		<Row ModifierId="TRAIT_0019_MODIFIER" Name="Amount"  Value="5"/>
+		<!--打蛮族额外增加攻击力-->
+		<Row ModifierId="TRAIT_EMM_BONUS_AGAINST_BARBS" Name="Amount"  Value="20"/>
+		<!--宗教单位传教次数增加-->
+		<Row ModifierId="TRAIT_0023" Name="Amount"  Value="3"/>
+		<!--战略资源储备上限增加-->
+		<Row ModifierId="TRAIT_0034" Name="Amount"  Value="500"/>
+		<!-- 占领城市后强制信仰本国国教 -->
+		<Row ModifierId="TRAIT_EliteSoldier_CONQUISTADOR_CITY_RELIGION_COMBAT" Name="ModifierId"  Value="CAPTURE_COMBAT_UNITS_AS_WORKERS"/>
+		<!-- 将敌人转化为工人 -->
+		<Row ModifierId="TRAIT_EliteSoldier_CAPTURE_COMBAT_UNITS_AS_WORKERS" Name="ModifierId"  Value="500"/>
+		
+		<!--城市电力-->
+		<Row ModifierId="TRA_SORROW_POWER_ORIGIN" Name="ModifierId"  Value="TRA_SORROW_POWER_ORIGIN_MODIFIER"/>
+		<Row ModifierId="TRA_SORROW_POWER_ORIGIN_MODIFIER" Name="SourceType"  Value="FREE_POWER_SOURCE_WATER"/>
+		<Row ModifierId="TRA_SORROW_POWER_ORIGIN_MODIFIER" Name="Amount"  Value="50"/>
+
+		<!--每回合提供战略资源-->
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_HORSES" Name="ResourceType"  Value="RESOURCE_HORSES"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_HORSES" Name="Amount"  Value="10"/>
+
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_IRON" Name="ResourceType"  Value="RESOURCE_IRON"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_IRON" Name="Amount"  Value="10"/>
+
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_NITER" Name="ResourceType"  Value="RESOURCE_NITER"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_NITER" Name="Amount"  Value="10"/>
+
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_COAL" Name="ResourceType"  Value="RESOURCE_COAL"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_COAL" Name="Amount"  Value="10"/>
+
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_OIL" Name="ResourceType"  Value="RESOURCE_OIL"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_OIL" Name="Amount"  Value="10"/>
+
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_ALUMINUM" Name="ResourceType"  Value="RESOURCE_ALUMINUM"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_ALUMINUM" Name="Amount"  Value="10"/>
+
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_URANIUM" Name="ResourceType"  Value="RESOURCE_URANIUM"/>
+		<Row ModifierId="TRA_SORROW_GRANT_FREE_URANIUM" Name="Amount"  Value="10"/>
+	</ModifierArguments>
+
+	<!-- 加入所有条目 -->
+	<BuildingModifiers>
+		<!--增加边界扩张率-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="MAGIC_PALACE_CULTUREBORDER"/>
+		<!--晋升单位不结束回合-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="MAGIC_PALACE_GRANCOLOMBIA_PROMOTE_NO_FINISH_MOVES"/>
+		<!--尤里卡获得100%科技-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="MAGIC_PALACE_BABYLON_EUREKA_INCREASE"/>
+		<!--工人建造次数-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="SOG_ADJUST_BUILDER_CHARGES"/>
+		<!-- 攻击后可以移动 -->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_EliteSoldier_MOVE_AFTER_ATTACK"/>
+		<!--攻击后移动-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0021"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0021_MODIFIER"/>
+		<!-- 即使已行动也可恢复生命 -->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_EliteSoldier_MAMLUK_HEAL_EVERY_MOVE"/>
+		<!--移动-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0007"/>
+		<!--单位射程-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0009"/>
+		<!--攻击次数-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0018"/>
+		<!--影响力-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0020"/>
+		<!--初始人口增加-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0028"/>
+		<!--初始地块增加-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0027"/>
+		<!--视野范围-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0019"/>
+		<!--打蛮族额外增加攻击力-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_EMM_BONUS_AGAINST_BARBS"/>
+		<!--宗教单位传教次数增加-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0023"/>
+		<!--战略资源储备上限增加-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_0034"/>
+		<!-- 占领城市后强制信仰本国国教 -->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_EliteSoldier_CONQUISTADOR_CITY_RELIGION_COMBAT"/>
+		<!-- 将敌人转化为工人 -->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRAIT_EliteSoldier_CAPTURE_COMBAT_UNITS_AS_WORKERS"/>
+		
+		<!--城市电力-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_POWER_ORIGIN"/>	
+		
+		<!--每回合提供战略资源-->
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_HORSES"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_IRON"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_NITER"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_COAL"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_OIL"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_ALUMINUM"/>
+		<Row BuildingType="BUILDING_TRA_SORROW" ModifierId="TRA_SORROW_GRANT_FREE_URANIUM"/>
+	</BuildingModifiers>
+
+
+
+</GameData>
